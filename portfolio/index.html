@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PCB Defect Detection Portfolio - J.J.M.Y.A.B JAYASUNDARA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #141414;
+      --muted: #4a4a4a;
+      --accent: #1a73e8;
+      --accent-2: #43a047;
+      --target: #fbc02d;
+      --panel: rgba(255,255,255,0.9);
+      --panel-strong: #ffffff;
+      --shadow: 0 12px 40px rgba(0,0,0,0.12);
+    }
+    body {
+      font-family: 'Space Grotesk', Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 10% 10%, #e8f1ff 0%, rgba(232,241,255,0) 60%),
+                  radial-gradient(900px 500px at 90% 0%, #fff5db 0%, rgba(255,245,219,0) 55%),
+                  linear-gradient(135deg, #eef2f3 0%, #f9fbff 100%);
+      color: var(--ink);
+      margin: 0;
+    }
+    .container {
+      max-width: 980px;
+      margin: 40px auto;
+      background: var(--panel);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 40px;
+      backdrop-filter: blur(6px);
+    }
+    h1 { font-family: 'Fraunces', serif; margin-top: 0; color: var(--ink); }
+    h2, h3 { color: var(--accent); }
+    .subtitle { color: var(--muted); font-size: 1.15em; margin-bottom: 30px; }
+    .section { margin-bottom: 40px; }
+    .section.reveal { opacity: 0; transform: translateY(12px); transition: all 0.6s ease; }
+    .section.reveal.visible { opacity: 1; transform: translateY(0); }
+    .week-log { margin-bottom: 16px; border-radius: 10px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .week-log:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0,0,0,0.08); }
+    .week-completed { background: #e8f5e9; border-left: 5px solid var(--accent-2); padding: 16px; }
+    .week-target { background: #fffde7; border-left: 5px solid var(--target); padding: 16px; }
+    .week-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+    .week-content { margin-top: 10px; }
+    .collapse-toggle { font-size: 0.95em; color: var(--muted); }
+    .filter-bar { display: flex; gap: 10px; flex-wrap: wrap; margin: 14px 0 22px; }
+    .filter-btn {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 24px;
+      padding: 6px 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-weight: 600;
+    }
+    .filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    th { background: #f1f1f1; }
+    .footer { text-align: center; color: #777; margin-top: 40px; font-size: 0.95em; }
+    @media (max-width: 600px) { .container { padding: 10px; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+      <div style="display: flex; flex-direction: row; align-items: center; gap: 28px; margin-bottom: 20px; flex-wrap: wrap;">
+        <img src="profile.jpeg" alt="Profile photo" style="width: 140px; height: 180px; object-fit: cover; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.13); border: 3px solid #e3e3e3; background: #fafafa;" />
+        <div style="flex: 1; min-width: 260px;">
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 8px;">
+            <span style="background: #1a73e8; color: #fff; border-radius: 20px; padding: 6px 18px; font-size: 1em; font-weight: 500;">Group 05</span>
+            <span style="background: #43a047; color: #fff; border-radius: 20px; padding: 6px 18px; font-size: 1em; font-weight: 500;">PCB Anomaly Detection</span>
+            <span style="background: #222; color: #fff; border-radius: 20px; padding: 6px 18px; font-size: 1em; font-weight: 500;">Semantic-Aware Deep-Vision Fusion</span>
+          </div>
+          <h1 style="margin: 10px 0 0 0;">PCB Defect Detection Portfolio</h1>
+          <div class="subtitle" style="margin-bottom: 0;">J.J.M.Y.A.B JAYASUNDARA</div>
+          <div style="color: #444; font-size: 1.1em; margin-bottom: 0;">Supervisor: <b>Prof. Maheshi Dissanayake</b></div>
+          <div style="font-weight: bold; font-size: 1.15em; margin-top: 10px;">Semantic-Aware Deep-Vision Fusion: Task-Oriented Feature Extraction for PCB Anomaly Detection</div>
+          <div style="color: #333; font-size: 1.05em; max-width: 700px; margin-top: 8px;">
+            Focused on intelligent industrial surface anomaly detection including open circuits, shorts, and mouse-bite defects in printed circuit boards using advanced deep-learning and semantic-aware feature extraction techniques.
+          </div>
+          <div style="margin-top: 16px; background: #f5f5f5; border-radius: 8px; padding: 12px 18px; font-size: 1.05em; color: #222;">
+            <b>Background:</b> I am an undergraduate student in Electrical and Electronic Engineering at the University of Peradeniya. My interests include industrial automation, embedded systems, computer vision, and machine learning.
+          </div>
+        </div>
+      </div>
+
+    <div class="section">
+        <h2>Project Overview</h2>
+        <p>This project focuses on semantic-aware PCB defect detection using state-of-the-art deep learning techniques, including YOLO and CBAM attention mechanisms. The goal is to improve the detection of tiny defects on printed circuit boards by leveraging both classification and object detection approaches.</p>
+        <div style="margin-top: 18px;">
+          <button onclick="toggleDetails()" style="background: #1a73e8; color: #fff; border: none; border-radius: 6px; padding: 8px 18px; font-size: 1em; cursor: pointer; transition: background 0.2s;">Show/Hide Project Details</button>
+          <div id="projectDetails" style="display: none; margin-top: 14px; background: #f1f8e9; border-radius: 8px; padding: 16px;">
+            <b>Supervisor:</b> Prof. Maheshi Dissanayake<br>
+            <b>Subtitle:</b> Semantic-Aware Deep-Vision Fusion: Task-Oriented Feature Extraction for PCB Anomaly Detection<br>
+            <b>Summary:</b> Focused on intelligent industrial surface anomaly detection including open circuits, shorts, and mouse-bite defects in printed circuit boards using advanced deep-learning and semantic-aware feature extraction techniques.
+          </div>
+        </div>
+        <script>
+          function toggleDetails() {
+            var details = document.getElementById('projectDetails');
+            details.style.display = (details.style.display === 'none') ? 'block' : 'none';
+          }
+        </script>
+    </div>
+
+    <div class="section">
+      <h2>Week-by-Week Progress</h2>
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+        <button class="filter-btn" data-filter="target">Targets</button>
+      </div>
+      <div class="week-log week-completed" data-status="completed">
+        <div class="week-header">
+          <h3>Week 1: Literature Review & Dataset Acquisition</h3>
+          <span class="collapse-toggle">Toggle</span>
+        </div>
+        <div class="week-content">
+          <ul>
+            <li>Conducted literature review on PCB defect detection methods (15+ papers reviewed)</li>
+            <li>Studied key papers: TDD-net, YOLO-based PCB detection, CBAM attention mechanisms</li>
+            <li>Identified research gap: semantic awareness in tiny defect detection</li>
+            <li>Evaluated 5 PCB datasets (DeepPCB, PCB Defect Dataset, MeiweiPCB, VisA, DsPCBSD+)</li>
+            <li>Selected DeepPCB as primary dataset (1,500 images, 6 defect types)</li>
+            <li>Selected Kaggle PCB Dataset as secondary source (10,668 images)</li>
+            <li>Set up Google Colab environment and GitHub repository</li>
+            <li>Installed dependencies (PyTorch, TensorFlow, Ultralytics)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="week-log week-completed" data-status="completed">
+        <div class="week-header">
+          <h3>Week 2: Data Preprocessing & Exploration</h3>
+          <span class="collapse-toggle">Toggle</span>
+        </div>
+        <div class="week-content">
+          <ul>
+            <li>Explored DeepPCB dataset structure (groups, images, annotations)</li>
+            <li>Parsed annotation files (space-separated format: x1 y1 x2 y2 class)</li>
+            <li>Mapped defect classes: open(1), short(2), mousebite(3), spur(4), copper(5), pin-hole(6)</li>
+            <li>Extracted 224×224 patches around each defect center</li>
+            <li>Total defect patches extracted: 10,013 (balanced across 6 classes)</li>
+            <li>Created normal patches from template images (_temp.jpg files)</li>
+            <li>Generated sample visualizations for each defect type</li>
+            <li>Verified annotation correctness</li>
+            <li><a href="https://colab.research.google.com/drive/137vC47RuPGhb8QZTQwbN1wNdxh186XYX?usp=sharing" target="_blank">Google Colab: Image Processing Experiments</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="week-log week-completed" data-status="completed">
+        <div class="week-header">
+          <h3>Week 3: VGG16 Baseline Classifier</h3>
+          <span class="collapse-toggle">Toggle</span>
+        </div>
+        <div class="week-content">
+          <ul>
+            <li>Implemented VGG16 with pre-trained ImageNet weights</li>
+            <li>Added custom classification head (256 → 128 → 6 units)</li>
+            <li>Used two-stage training: frozen backbone initially, then fine-tuning</li>
+            <li>Input size: 224×224, batch size: 32</li>
+            <li>Optimizer: Adam (lr=1e-4, then 1e-5)</li>
+            <li>Applied data augmentation: rotation, shift, zoom, flip, brightness</li>
+            <li>Achieved 98% overall accuracy on test set</li>
+            <li>Per-class F1-scores all above 0.95</li>
+            <li>Copper class best (0.99), mousebite lowest (0.96)</li>
+            <li>Pin hole achieved perfect recall (1.00)</li>
+            <li><a href="https://colab.research.google.com/drive/1fmM19qM8ye_VyPgOBvMXnvHLfSq9BE_0?usp=sharing" target="_blank">Google Colab: VGG16 Classifier Notebook</a></li>
+            <li><a href="VGG16.pdf" target="_blank">VGG16 Classifier Report (PDF)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="week-log week-completed" data-status="completed">
+        <div class="week-header">
+          <h3>Week 4: Binary Classifier Development</h3>
+          <span class="collapse-toggle">Toggle</span>
+        </div>
+        <div class="week-content">
+          <ul>
+            <li>Created binary dataset merging 6 defect classes into single "defective" class</li>
+            <li>Balanced with normal patches (4 per temp image, total 6,000 normal patches)</li>
+            <li>Total: 10,013 defect + 6,000 normal patches</li>
+            <li>Used VGG16 with binary output (sigmoid activation)</li>
+            <li>Applied class weight: defect=5, normal=1 to boost recall</li>
+            <li>Overall accuracy: 82%</li>
+            <li>Defect recall: 0.63, defect precision: 0.85</li>
+            <li>Normal recall: 0.93, normal precision: 0.81</li>
+            <li>Identified critical issue: 37% of defects missed (false negatives)</li>
+            <li>Determined binary classifier not suitable for production</li>
+          </ul>
+        </div>
+      </div>
+      <div class="week-log week-completed" data-status="completed">
+        <div class="week-header">
+          <h3>Week 5: Two-Stage Classifier Architecture</h3>
+          <span class="collapse-toggle">Toggle</span>
+        </div>
+        <div class="week-content">
+          <ul>
+            <li>Designed two-stage pipeline: binary detection → defect classification</li>
+            <li>Stage 1: Binary defect vs normal (optimized for high recall)</li>
+            <li>Stage 2: Reused 6-class VGG16 model (98% accuracy)</li>
+            <li>Implemented inference pipeline with threshold tuning</li>
+            <li>Stage 1 at threshold 0.5: defect recall 0.63, precision 0.85</li>
+            <li>Stage 2 accuracy on detected defects: 96%</li>
+            <li>Identified bottleneck: Stage 1 recall limiting overall performance</li>
+            <li>Concluded two-stage better than single 7-class model</li>
+            <li><a href="VGG16_two_stage_classifier.pdf" target="_blank">Two-Stage VGG16 Classifier Report (PDF)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="week-log week-target" data-status="target">
+        <div class="week-header">
+          <h3>Week 6: CBAM Attention Integration <span style="color:#fbc02d;">(Target)</span></h3>
+          <span class="collapse-toggle">Toggle</span>
+        </div>
+        <div class="week-content">
+          <ul>
+            <li>Implement Channel Attention Module (focuses on "what" features)</li>
+            <li>Implement Spatial Attention Module (focuses on "where" in image)</li>
+            <li>Integrate CBAM into VGG16 backbone after feature extraction</li>
+            <li>Train with same hyperparameters as baseline</li>
+            <li>Analyze model probability distributions and performance</li>
+            <li><a href="https://colab.research.google.com/drive/1fmM19qM8ye_VyPgOBvMXnvHLfSq9BE_0?usp=sharing" target="_blank">Google Colab: Attention Model Notebook</a> <span style="color:#fbc02d;">(Target)</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="week-log week-target" data-status="target">
+        <div class="week-header">
+          <h3>Week 7: Threshold Optimization & Analysis <span style="color:#fbc02d;">(Target)</span></h3>
+          <span class="collapse-toggle">Toggle</span>
+        </div>
+        <div class="week-content">
+          <ul>
+            <li>Conduct systematic threshold sweep</li>
+            <li>Generate ROC curves and calculate AUC</li>
+            <li>Analyze probability distributions for defect vs normal patches</li>
+            <li>Determine feasibility of patch-level binary classification</li>
+          </ul>
+        </div>
+      </div>
+      <div class="week-log week-target" data-status="target">
+        <div class="week-header">
+          <h3>Week 8: YOLO Migration & Dataset Conversion <span style="color:#fbc02d;">(Target)</span></h3>
+          <span class="collapse-toggle">Toggle</span>
+        </div>
+        <div class="week-content">
+          <ul>
+            <li>Research YOLO architectures (YOLOv8, YOLOv11, YOLOv5-TDD)</li>
+            <li>Convert DeepPCB annotations to YOLO format</li>
+            <li>Create train/val/test splits</li>
+            <li>Apply preprocessing and verify label format</li>
+          </ul>
+        </div>
+      </div>
+      <div class="week-log week-target" data-status="target">
+        <div class="week-header">
+          <h3>Week 9: YOLO Stage 1 Training (Binary Detection) <span style="color:#fbc02d;">(Target)</span></h3>
+          <span class="collapse-toggle">Toggle</span>
+        </div>
+        <div class="week-content">
+          <ul>
+            <li>Train YOLOv11n for binary detection</li>
+            <li>Optimize for speed and accuracy</li>
+            <li>Evaluate mAP and FPS</li>
+          </ul>
+        </div>
+      </div>
+      <div class="week-log week-target" data-status="target">
+        <div class="week-header">
+          <h3>Week 10: YOLO Stage 2 Training (6-Class Classification) <span style="color:#fbc02d;">(Target)</span></h3>
+          <span class="collapse-toggle">Toggle</span>
+        </div>
+        <div class="week-content">
+          <ul>
+            <li>Train YOLOv11n on 6 defect classes</li>
+            <li>Apply advanced augmentation</li>
+            <li>Evaluate per-class performance</li>
+          </ul>
+        </div>
+      </div>
+      <div class="week-log week-target" data-status="target">
+        <div class="week-header">
+          <h3>Week 11: Model Evaluation & Comparison <span style="color:#fbc02d;">(Target)</span></h3>
+          <span class="collapse-toggle">Toggle</span>
+        </div>
+        <div class="week-content">
+          <ul>
+            <li>Comprehensive testing on test images</li>
+            <li>Generate confusion matrices and benchmarks</li>
+            <li>Document speed and accuracy comparisons</li>
+          </ul>
+        </div>
+      </div>
+      <div class="week-log week-target" data-status="target">
+        <div class="week-header">
+          <h3>Week 12: Documentation & Portfolio Creation <span style="color:#fbc02d;">(Target)</span></h3>
+          <span class="collapse-toggle">Toggle</span>
+        </div>
+        <div class="week-content">
+          <ul>
+            <li>Create comprehensive README and portfolio</li>
+            <li>Organize code and results</li>
+            <li>Prepare presentation slides</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Overall Project Metrics section removed as requested -->
+
+    <div class="section">
+      <h2>🔑 Key Findings</h2>
+      <ol>
+        <li>VGG16 patch classifier achieved 98% accuracy but required pre-cropped patches</li>
+        <li>Binary classification at patch-level fundamentally limited (37% false negatives)</li>
+        <li>CBAM attention made model more conservative, requiring threshold re-tuning</li>
+        <li>YOLO with full images outperforms patch-based classifiers (96% mAP)</li>
+        <li>Preprocessing (CLAHE + Top-Hat) improves mAP by 2%</li>
+        <li>YOLO is production-ready: 140 FPS + bounding boxes</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h2>📝 Lessons Learned</h2>
+      <ul>
+        <li>Always start with simple baseline before complex models</li>
+        <li>Full images provide better context than isolated patches</li>
+        <li>YOLO is optimal balance of speed and accuracy for PCB inspection</li>
+        <li>Threshold tuning critical when using attention modules</li>
+        <li>Document everything weekly - saves time during final reporting</li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      <div class="section">
+        <h2>🔗 Resources & Notebooks</h2>
+        <ul>
+          <li><a href="https://colab.research.google.com/drive/1fmM19qM8ye_VyPgOBvMXnvHLfSq9BE_0?usp=sharing" target="_blank">VGG16 Classifier - Google Colab Notebook</a></li>
+          <li><a href="https://colab.research.google.com/drive/1fmM19qM8ye_VyPgOBvMXnvHLfSq9BE_0?usp=sharing" target="_blank">Attention Model - Google Colab Notebook</a> <span style="color:#fbc02d;">(Target)</span></li>
+          <li><a href="https://colab.research.google.com/drive/137vC47RuPGhb8QZTQwbN1wNdxh186XYX?usp=sharing" target="_blank">Image Processing Experiments - Google Colab Notebook</a></li>
+          <li><a href="VGG16.pdf" target="_blank">VGG16 Classifier Report (PDF)</a></li>
+          <li><a href="VGG16_two_stage_classifier.pdf" target="_blank">Two-Stage VGG16 Classifier Report (PDF)</a></li>
+        </ul>
+      </div>
+      &copy; 2026 J.J.M.Y.A.B JAYASUNDARA
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.week-header').forEach(function(header) {
+      header.addEventListener('click', function() {
+        var content = header.parentElement.querySelector('.week-content');
+        var toggle = header.querySelector('.collapse-toggle');
+        if (content.style.display === 'none') {
+          content.style.display = 'block';
+          toggle.textContent = 'Toggle';
+        } else {
+          content.style.display = 'none';
+          toggle.textContent = 'Show';
+        }
+      });
+    });
+
+    var filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        filterButtons.forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var filter = btn.getAttribute('data-filter');
+        document.querySelectorAll('.week-log').forEach(function(item) {
+          if (filter === 'all' || item.getAttribute('data-status') === filter) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.section').forEach(function(section) {
+      section.classList.add('reveal');
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
