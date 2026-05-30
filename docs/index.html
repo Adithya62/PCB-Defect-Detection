@@ -311,6 +311,7 @@
             <li>Selected Kaggle PCB Dataset as secondary source (10,668 images)</li>
             <li>Set up Google Colab environment and GitHub repository</li>
             <li>Installed dependencies (PyTorch, TensorFlow, Ultralytics)</li>
+            <li><a href="https://www.youtube.com/watch?v=ArPaAX_PhIs&list=PLkDaE6sCZn6Gl29AoE31iwdVwSG-KnDzF" target="_blank">Watched the Neural Networks & Deep Learning playlist and gathered foundational knowledge</a></li>
           </ul>
         </div>
       </div>
@@ -393,6 +394,28 @@
           </ul>
         </div>
       </div>
+      <div class="week-log week-completed" data-status="completed">
+        <div class="week-header">
+          <h3>Week 5: VGG16 + Fusion</h3>
+          <span class="status-pill done">DONE</span>
+          <span class="collapse-toggle">▼</span>
+        </div>
+        <div class="week-content">
+          <ul>
+            <li>Built a VGG16 + shallow-feature fusion model (512 deep + 17 shallow = 529 features)</li>
+            <li>Initial fusion scored 99.41% accuracy but showed strong defect bias in predictions</li>
+            <li>Observed bias: 85.6% predicted as defect vs true defect rate 49.9% (many normal boards flagged)</li>
+            <li>Applied PCA to deep features (32 components, ~95% variance) and fused to 49 features total</li>
+            <li>Balanced fusion results: 97.56% accuracy, 100% precision, 95.11% recall, zero false positives</li>
+            <li>Bias corrected: defect prediction rate dropped to 47.5% (close to true 49.9%)</li>
+            <li>Selected 32 PCA components as the best trade-off between bias reduction and recall</li>
+            <li>Recommended post-PCA threshold: 0.40 (recall ~97%, precision ~98%)</li>
+            <li><a href="https://colab.research.google.com/drive/1Mpl9uR4UDfGD8-ackNYFMXyDkJHxRSnc?usp=sharing" target="_blank">Google Colab: VGG16 + Fusion Notebook</a></li>
+            <li><a href="https://colab.research.google.com/drive/1xK-PNhTn0xOMpEuulKwVRf-KD8KmN1r0?usp=sharing" target="_blank">Google Colab: VGG16 + Fusion with PCA Notebook</a></li>
+            <li><a href="fusion%20(1).pdf" target="_blank">VGG16 + Fusion Report (PDF)</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <!-- Overall Project Metrics section removed as requested -->
@@ -402,10 +425,12 @@
       <ol>
         <li>VGG16 patch classifier achieved 98% accuracy but required pre-cropped patches</li>
         <li>Binary classification at patch-level fundamentally limited (37% false negatives)</li>
-        <li>CBAM attention made model more conservative, requiring threshold re-tuning</li>
-        <li>YOLO with full images outperforms patch-based classifiers (96% mAP)</li>
-        <li>Preprocessing (CLAHE + Top-Hat) improves mAP by 2%</li>
-        <li>YOLO is production-ready: 140 FPS + bounding boxes</li>
+        <li>VGG + shallow fusion reached 99.41% accuracy but showed strong defect bias (85.6% predicted defective)</li>
+        <li>PCA-balanced fusion (32+17 features) removed bias and achieved 100% precision with zero false positives</li>
+        <li>Optimal PCA components: 32 (best balance of variance, bias reduction, and recall)</li>
+        <li>Prediction distribution checks exposed hidden bias that accuracy alone masked</li>
+        <li>Threshold 0.40 after PCA improved recall to ~97% while keeping precision ~98%</li>
+        <li>Shallow features gained meaningful influence (35%) after dimensionality reduction</li>
       </ol>
     </div>
 
@@ -414,8 +439,10 @@
       <ul>
         <li>Always start with simple baseline before complex models</li>
         <li>Full images provide better context than isolated patches</li>
-        <li>YOLO is optimal balance of speed and accuracy for PCB inspection</li>
-        <li>Threshold tuning critical when using attention modules</li>
+        <li>High accuracy can hide severe bias, so always check prediction distribution</li>
+        <li>Feature dominance matters; deep features can overwhelm shallow ones</li>
+        <li>PCA balancing is effective for reducing bias while preserving performance</li>
+        <li>Zero false positives can be achieved by balancing feature influence</li>
         <li>Document everything weekly - saves time during final reporting</li>
       </ul>
     </div>
