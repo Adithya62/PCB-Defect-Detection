@@ -258,7 +258,7 @@
 
     <div class="section" id="overview">
         <h2>Project Overview</h2>
-        <p>This project focuses on semantic-aware PCB defect detection using state-of-the-art deep learning techniques, including YOLO and CBAM attention mechanisms. The goal is to improve the detection of tiny defects on printed circuit boards by leveraging both classification and object detection approaches.</p>
+        <p>This project focuses on semantic-aware PCB defect detection using deep learning, with a planned VGG16 + Fusion classifier that combines deep and shallow features. The goal is to improve tiny defect detection on printed circuit boards through balanced feature fusion and robust classification.</p>
         <div style="margin-top: 18px;">
           <button onclick="toggleDetails()" class="btn primary">Show/Hide Project Details</button>
           <div id="projectDetails" style="display: none; margin-top: 14px; background: #f1f8e9; border-radius: 8px; padding: 16px;">
@@ -273,12 +273,12 @@
             <p>DeepPCB + Kaggle PCB with 10k+ defect patches extracted.</p>
           </div>
           <div class="summary-card">
-            <h4>Best Classifier</h4>
+            <h4>Baseline Classifier</h4>
             <p>VGG16 patch classifier achieved 98% accuracy in tests.</p>
           </div>
           <div class="summary-card">
             <h4>Deployment Path</h4>
-            <p>YOLO full-image detection delivers high speed and mAP.</p>
+            <p>VGG16 + Fusion classifier with PCA-balanced features for reliable decisions.</p>
           </div>
         </div>
         <script>
